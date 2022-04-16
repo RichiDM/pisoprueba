@@ -8,13 +8,21 @@
 #include <stdlib.h>
 
 
+
+
 float funcionIngresarKilometros()
 {
     float kilometros;
 
     printf("ingresar kilometros\n");
+    setbuf(stdout,NULL);
     scanf("%f",&kilometros);
-
+    while(kilometros<1)
+    {
+    	printf("\nERROR EL NUMERO INGRESADO NO ES VALIDO, debe ser un numero positivo\n ");
+    	setbuf(stdout,NULL);
+    	scanf("%f",&kilometros);
+    }
     return kilometros;
 
 }
@@ -24,7 +32,15 @@ float funcionPreciosVueloLatam()
    float precioLatam;
 
    printf("ingresar el precio de empresa Latam :");
+   setbuf(stdout,NULL);
    scanf("%f",&precioLatam);
+
+   while(precioLatam<1)
+      {
+      	printf("\nERROR EL NUMERO INGRESADO NO ES VALIDO, debe ser un numero positivo\n ");
+      	setbuf(stdout,NULL);
+      	scanf("%f",&precioLatam);
+      }
 
 
    return precioLatam;
@@ -32,11 +48,19 @@ float funcionPreciosVueloLatam()
 }
 float funcionPreciosVueloAerolineas()
 {
+	float precioAerolineas;
 
-   float precioAerolineas;
+	printf("ingresar el precio de empresa aerolineas :");
+	setbuf(stdout,NULL);
+	scanf("%f",&precioAerolineas);
 
-   printf("\ningresar el precio de empresa Aerolineas :");
-   scanf("%f",&precioAerolineas);
+   while(precioAerolineas<1)
+	 {
+    	printf("\nERROR EL NUMERO INGRESADO NO ES VALIDO, debe ser un numero positivo\n ");
+	   	setbuf(stdout,NULL);
+	   	scanf("%f",&precioAerolineas);
+     }
+
 
 
    return precioAerolineas;
@@ -51,7 +75,6 @@ float funcionDebitoConDescuento(float valor)
     descuento=valor*0.10;
     totalDescontado=valor-descuento;
 
-   // printf("el valor con debito es  es :%.2f\n ",totalDescontado);
 
     return totalDescontado;
 
@@ -60,21 +83,14 @@ float funcionCreditoConAumento(float precio)
 {
     float aumento;
     float totalConAumento;
-
     aumento=precio*0.25;
     totalConAumento=precio+aumento;
-
-    //printf("el valor del vuelo latam con credito es :%f\n ",totalConAumento);
-
     return totalConAumento;
-
-
 }
 float funcionCambioPesosaBitcoin(float valor)
 {
     float precioEnBitcoin;
     float btc;
-
     btc=4606954.55;
     precioEnBitcoin=valor/btc;
 
